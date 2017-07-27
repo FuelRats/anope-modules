@@ -37,7 +37,7 @@ class ModuleWebhooks : public Module
 {
 	Anope::string webhook_url;
 	long timeout, connect_timeout;
-	bool ns_drop, ns_register, ns_confirm, ns_group;
+	bool ns_drop, ns_register, ns_group;
 
 public:
 
@@ -64,18 +64,18 @@ public:
 	}
 
 	void OnNickDrop(CommandSource &source, NickAlias *na) {
-		if (ns_drop && source.GetUser())
-			PostCall("ns_drop", source.GetUser()->nick.c_str());
+		if (ns_drop && na)
+			PostCall("ns_drop", na->nick.c_str());
 	}
 
 	void OnNickRegister(User *user, NickAlias *na, const Anope::string &pass) {
-		if (ns_register && user)
-			PostCall("ns_register", user->nick.c_str());
+		if (ns_register && na)
+			PostCall("ns_register", na->nick.c_str());
 	}
 
 	void OnNickGroup(User *user, NickAlias *na) {
-		if (ns_group && user)
-			PostCall("ns_group", user->nick.c_str());
+		if (ns_group && na)
+			PostCall("ns_group", na->nick.c_str());
 	}
 
 private:
