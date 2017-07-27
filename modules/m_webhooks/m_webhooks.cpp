@@ -1,12 +1,11 @@
 /*
- * Notification of pending expiry or expired nicks and channels
+ * Allows events in Anope to trigger calls to remote webhook endpoints.
  *
  * (C) 2017 - Timothy Gunter <gunter.tim@gmail.com>
  *
  * Please refer to the GPL License in use by Anope at:
  * https://github.com/anope/anope/blob/master/docs/COPYING
  *
- * Allows events in Anope to trigger calls to remote webhook endpoints.
  */
 
 /*
